@@ -4,142 +4,335 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semana de Tecnologia IFAL</title>
+    <title>PWEB1 — Cap. 05 — AT05 — Formulário de Pesquisa Acadêmica</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>Semana de Tecnologia IFAL</h1>
+    <header>
+        <h1>Formulário de Pesquisa Acadêmica</h1>
 
-    <form action="https://httpbin.org/post"
-          method="post"
-          enctype="multipart/form-data">
+        <p>
+            <a href="../index.html">
+                ← Voltar para a página principal
+            </a>
+        </p>
+    </header>
 
-        <input type="hidden" name="edicao" value="2026">
+    <main>
 
-        <fieldset>
-            <legend>Identificação do Participante</legend>
+        <p><strong>* Campos obrigatórios</strong></p>
 
-            <p>
-                <label for="nome">Nome completo *</label><br>
-                <input type="text" id="nome" name="nome" required>
-            </p>
+        <form
+            action="https://httpbin.org/post"
+            method="post"
+            novalidate>
 
-            <p>
-                <label for="email">E-mail institucional *</label><br>
-                <input type="email" id="email" name="email" required>
-            </p>
+            <!-- PERFIL DO ESTUDANTE -->
 
-            <p>
-                <label for="cidade">Cidade de origem</label><br>
-                <input type="text"
-                       id="cidade"
-                       name="cidade"
-                       list="cidades">
+            <fieldset>
+                <legend>Perfil do Estudante</legend>
 
-                <datalist id="cidades">
-                    <option value="Maceió">
-                    <option value="Arapiraca">
-                    <option value="Rio Largo">
-                    <option value="Palmeira dos Índios">
-                    <option value="Penedo">
-                    <option value="União dos Palmares">
-                    <option value="Delmiro Gouveia">
-                    <option value="São Miguel dos Campos">
-                </datalist>
-            </p>
+                <p>
+                    <label for="nome">
+                        Nome completo *
+                    </label><br>
 
-            <p>
-                <label for="foto">Foto para crachá</label><br>
-                <input type="file"
-                       id="foto"
-                       name="foto"
-                       accept="image/jpeg,image/png"
-                       aria-describedby="info-foto">
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        autocomplete="name"
+                        aria-required="true"
+                        required>
+                </p>
 
-                <small id="info-foto">
-                    Formatos aceitos: JPG e PNG. Tamanho máximo: 2 MB.
-                </small>
-            </p>
+                <p>
+                    <label for="matricula">
+                        Matrícula *
+                    </label><br>
 
-        </fieldset>
+                    <input
+                        type="text"
+                        id="matricula"
+                        name="matricula"
+                        pattern="\d{7}"
+                        aria-required="true"
+                        aria-describedby="ajuda-matricula"
+                        required>
 
-        <fieldset>
-            <legend>Preferências para o Evento</legend>
+                    <small id="ajuda-matricula">
+                        Informe exatamente 7 números.
+                    </small>
+                </p>
 
-            <p>
-                <label for="chegada">
-                    Data e hora preferida para chegada
-                </label><br>
+                <p>
+                    <label for="email">
+                        E-mail institucional *
+                    </label><br>
 
-                <input type="datetime-local"
-                       id="chegada"
-                       name="chegada">
-            </p>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        pattern="[a-zA-Z0-9._%+\-]+@ifal\.edu\.br"
+                        aria-required="true"
+                        aria-invalid="false"
+                        aria-describedby="erro-email"
+                        onblur="validarEmail(this)"
+                        required>
+                </p>
 
-            <p>
-                <label for="experiencia">
-                    Nível de experiência:
-                    <span id="valor-experiencia">5</span>/10
-                </label><br>
+                <p id="erro-email" role="alert"></p>
+
+                <p>
+                    <label for="periodo">
+                        Período atual *
+                    </label><br>
+
+                    <select
+                        id="periodo"
+                        name="periodo"
+                        aria-required="true"
+                        required>
+
+                        <option value="">Selecione</option>
+                        <option>1º período</option>
+                        <option>2º período</option>
+                        <option>3º período</option>
+                        <option>4º período</option>
+                        <option>5º período</option>
+                        <option>6º período</option>
+                        <option>7º período</option>
+                        <option>8º período</option>
+
+                    </select>
+                </p>
+
+                <fieldset>
+                    <legend>Turno</legend>
+
+                    <input
+                        type="radio"
+                        id="manha"
+                        name="turno"
+                        value="Manhã">
+
+                    <label for="manha">Manhã</label><br>
+
+                    <input
+                        type="radio"
+                        id="tarde"
+                        name="turno"
+                        value="Tarde">
+
+                    <label for="tarde">Tarde</label><br>
+
+                    <input
+                        type="radio"
+                        id="noite"
+                        name="turno"
+                        value="Noite">
+
+                    <label for="noite">Noite</label>
+                </fieldset>
+
+            </fieldset>
+
+            <!-- PERFIL TECNOLÓGICO -->
+
+            <fieldset>
+                <legend>Perfil Tecnológico</legend>
+
+                <fieldset>
+                    <legend>Tecnologias que conhece</legend>
+
+                    <input type="checkbox" id="html" name="tecnologias[]" value="HTML">
+                    <label for="html">HTML</label><br>
+
+                    <input type="checkbox" id="css" name="tecnologias[]" value="CSS">
+                    <label for="css">CSS</label><br>
+
+                    <input type="checkbox" id="js" name="tecnologias[]" value="JavaScript">
+                    <label for="js">JavaScript</label><br>
+
+                    <input type="checkbox" id="python" name="tecnologias[]" value="Python">
+                    <label for="python">Python</label><br>
+
+                    <input type="checkbox" id="java" name="tecnologias[]" value="Java">
+                    <label for="java">Java</label><br>
+
+                    <input type="checkbox" id="php" name="tecnologias[]" value="PHP">
+                    <label for="php">PHP</label><br>
+
+                    <input type="checkbox" id="mysql" name="tecnologias[]" value="MySQL">
+                    <label for="mysql">MySQL</label><br>
+
+                    <input type="checkbox" id="git" name="tecnologias[]" value="Git">
+                    <label for="git">Git</label>
+                </fieldset>
+
+                <p>
+                    <label for="linguagem">
+                        Linguagem favorita
+                    </label><br>
+
+                    <select id="linguagem" name="linguagem">
+
+                        <optgroup label="Orientada a Objetos">
+                            <option>Java</option>
+                            <option>C#</option>
+                            <option>Python</option>
+                        </optgroup>
+
+                        <optgroup label="Script">
+                            <option>JavaScript</option>
+                            <option>PHP</option>
+                        </optgroup>
+
+                    </select>
+                </p>
+
+                <p>
+                    <label for="experiencia">
+                        Anos de experiência com programação
+                    </label><br>
+
+                    <input
+                        type="number"
+                        id="experiencia"
+                        name="experiencia"
+                        min="0"
+                        max="30">
+                </p>
+
+                <p>
+                    <label for="portfolio">
+                        Portfólio ou LinkedIn
+                    </label><br>
+
+                    <input
+                        type="url"
+                        id="portfolio"
+                        name="portfolio"
+                        placeholder="https://"
+                        aria-describedby="ajuda-url">
+
+                    <small id="ajuda-url">
+                        Informe o link completo.
+                    </small>
+                </p>
+
+            </fieldset>
+
+            <!-- AVALIAÇÃO -->
+
+            <fieldset>
+                <legend>Avaliação da Disciplina</legend>
+
+                <p>
+                    <label for="nota">
+                        Nota para a disciplina:
+                        <span id="valor-nota">5</span>/10
+                    </label><br>
+
+                    <input
+                        type="range"
+                        id="nota"
+                        name="nota"
+                        min="0"
+                        max="10"
+                        value="5"
+                        oninput="document.getElementById('valor-nota').textContent = this.value">
+                </p>
+
+                <fieldset>
+                    <legend>Satisfação com o material didático</legend>
+
+                    <input type="radio" id="ms" name="satisfacao" value="Muito satisfeito">
+                    <label for="ms">Muito satisfeito</label><br>
+
+                    <input type="radio" id="s" name="satisfacao" value="Satisfeito">
+                    <label for="s">Satisfeito</label><br>
+
+                    <input type="radio" id="n" name="satisfacao" value="Neutro">
+                    <label for="n">Neutro</label><br>
+
+                    <input type="radio" id="i" name="satisfacao" value="Insatisfeito">
+                    <label for="i">Insatisfeito</label><br>
+
+                    <input type="radio" id="mi" name="satisfacao" value="Muito insatisfeito">
+                    <label for="mi">Muito insatisfeito</label>
+                </fieldset>
+
+                <p>
+                    <label for="sugestoes">
+                        Sugestões de melhoria
+                    </label><br>
+
+                    <textarea
+                        id="sugestoes"
+                        name="sugestoes"
+                        rows="6"
+                        maxlength="1000"></textarea>
+                </p>
+
+                <p>
+                    <label for="data_preenchimento">
+                        Data de preenchimento *
+                    </label><br>
+
+                    <input
+                        type="date"
+                        id="data_preenchimento"
+                        name="data_preenchimento"
+                        aria-required="true"
+                        required>
+                </p>
+
+            </fieldset>
+
+            <!-- CONSENTIMENTO -->
+
+            <fieldset>
+                <legend>Consentimento e Envio</legend>
+
+                <p>
+                    <input
+                        type="checkbox"
+                        id="consentimento"
+                        name="consentimento"
+                        aria-required="true"
+                        required>
+
+                    <label for="consentimento">
+                        Autorizo o uso dos dados para fins acadêmicos.
+                    </label>
+                </p>
 
                 <input
-                    type="range"
-                    id="experiencia"
-                    name="experiencia"
-                    min="0"
-                    max="10"
-                    step="1"
-                    value="5"
-                    oninput="document.getElementById('valor-experiencia').textContent = this.value">
-            </p>
+                    type="hidden"
+                    name="pesquisa_id"
+                    value="PWEB1-2026-1">
 
-            <p>
-                <label for="cor_camiseta">
-                    Cor de preferência para a camiseta
-                </label><br>
+                <button type="submit">
+                    Enviar Pesquisa
+                </button>
 
-                <input type="color"
-                       id="cor_camiseta"
-                       name="cor_camiseta"
-                       value="#1a73e8">
-            </p>
+                <button type="reset">
+                    Limpar
+                </button>
 
-            <p>
-                <label for="oficinas">
-                    Oficinas de interesse
-                </label><br>
+            </fieldset>
 
-                <select id="oficinas"
-                        name="oficinas[]"
-                        multiple
-                        size="4"
-                        aria-describedby="info-oficinas">
+        </form>
 
-                    <option>Desenvolvimento Web</option>
-                    <option>Banco de Dados</option>
-                    <option>Inteligência Artificial</option>
-                    <option>Segurança da Informação</option>
-                    <option>Computação em Nuvem</option>
-                </select>
+    </main>
 
-                <br>
-
-                <small id="info-oficinas">
-                    Use Ctrl (ou Cmd no Mac) para selecionar mais de uma oficina.
-                </small>
-            </p>
-
-        </fieldset>
-
-        <br>
-
-        <button type="submit">
-            Confirmar inscrição
-        </button>
-
-    </form>
+    <script src="script.js"></script>
 
 </body>
 
