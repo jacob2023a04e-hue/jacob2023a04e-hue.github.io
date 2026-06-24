@@ -1,0 +1,232 @@
+```css
+/* ==========================================================
+   Reflexão:
+   rem é relativo ao tamanho da fonte raiz do documento,
+   sendo ideal para tipografia. em é relativo à fonte do
+   próprio elemento, útil para espaçamentos proporcionais.
+   % adapta-se ao tamanho do elemento pai, favorecendo
+   layouts responsivos e redimensionamento da janela.
+   ========================================================== */
+
+/* ---------- Base ---------- */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #333333;
+  background-color: #f5f5f5;
+}
+
+/* ---------- Cabeçalho ---------- */
+.cabecalho {
+  background-color: #1565c0;
+  padding: 2rem;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.subtitulo {
+  color: #bbdefb;
+  font-size: 1rem;
+}
+
+/* ---------- Menu de navegação ---------- */
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+
+.menu li {
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+
+/* O seletor descendente (.menu a) alcança qualquer
+   link dentro do menu. Já o filho direto (>)
+   seleciona apenas filhos imediatos do elemento pai. */
+.menu a {
+  color: #ffffff;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.menu a::before {
+  content: "› ";
+}
+
+.menu a:hover {
+  color: #bbdefb;
+}
+
+/* ---------- Seções ---------- */
+.secao {
+  padding: 2rem;
+  max-width: 60rem;
+  margin: auto;
+}
+
+h2 {
+  color: #1565c0;
+  font-size: 1.5rem;
+}
+
+h3 {
+  color: #0d47a1;
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+/* Irmão adjacente */
+h2 + p {
+  margin-top: 1rem;
+}
+
+.destaque {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #b71c1c;
+}
+
+/* Irmão geral */
+.destaque ~ p {
+  color: #555555;
+  font-style: italic;
+}
+
+/* ---------- Grade de trilhas ---------- */
+.cartao {
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  padding: 1em;
+  margin: 0.5em;
+}
+
+/* nth-child() permite selecionar elementos
+   pela posição que ocupam entre os irmãos,
+   sem necessidade de adicionar classes no HTML. */
+.grade .cartao:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.grade .cartao:nth-child(even) {
+  background-color: #f0f7ff;
+}
+
+.grade .cartao:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.botao {
+  display: inline-block;
+  background-color: #1565c0;
+  color: #ffffff;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  margin-top: 0.5em;
+}
+
+.botao:hover {
+  background-color: #0d47a1;
+}
+
+/* Esta regra prevalece porque possui
+   maior especificidade (.cartao .botao)
+   do que apenas .botao */
+.cartao .botao {
+  background-color: #0d47a1;
+}
+
+/* .cartao .botao vence porque possui
+   duas classes no seletor, tornando-o
+   mais específico que apenas .botao.
+   O conflito foi resolvido sem !important. */
+
+/* ---------- Lista de programação ---------- */
+.lista-dias {
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+
+/* Filho direto */
+.lista-dias > li {
+  font-weight: bold;
+}
+
+.lista-dias > li:first-child {
+  color: #0d47a1;
+}
+
+.lista-dias > li:last-child {
+  color: #b71c1c;
+}
+
+/* ---------- Formulário ---------- */
+.formulario {
+  max-width: 30rem;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+label::after {
+  content: " *";
+  color: red;
+}
+
+/* Agrupamento de seletores */
+input,
+textarea {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #999999;
+  box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid #1565c0;
+}
+
+input[type="email"] {
+  border: 2px solid #2e7d32;
+}
+
+input[type="password"] {
+  border: 2px solid #c62828;
+}
+
+button {
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #1565c0;
+  padding: 0.5rem 1.5rem;
+  margin-top: 1rem;
+  border: 0;
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  background-color: #263238;
+  color: #cfd8dc;
+  padding: 1.5rem;
+  font-size: 0.875rem;
+}
+```
