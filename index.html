@@ -1,122 +1,98 @@
 <!DOCTYPE html>
-<html>
+<!-- ============================================================
+     TEMPLATE — Página pessoal com CSS Grid
+     Programação Web / Introdução às Tecnologias Web — IFAL
+     COMO USAR:
+     1) Copie ESTE index.html para o seu repositório (não mude a estrutura).
+     2) Escolha UM dos 3 temas de CSS (tema-1-indigo.css, tema-2-escuro.css
+        ou tema-3-editorial.css) e salve-o no seu projeto como  estilo.css
+        (é o nome que este HTML carrega logo abaixo).
+     3) Troque os textos marcados com "TROQUE" pelo seu conteúdo.
+     IMPORTANTE: o LAYOUT é feito com CSS Grid e é o mesmo nos 3 temas.
+     Você escolhe a APARÊNCIA (fonte, cores, bordas), não o layout.
+     ============================================================ -->
+<html lang="pt-BR">
+
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Pessoal — Pedro Jacob Aguiar Vitorio Alves</title>
+  <!-- Salve o tema escolhido como "estilo.css" (mesma pasta deste arquivo) -->
+  <link rel="stylesheet" href="estilo.css">
 </head>
 
 <body>
+  <div class="pagina">
 
+    <!-- ====== CABEÇALHO — TROQUE pelo seu nome e sua frase ====== -->
+    <header class="Pedro Jacob Aguiar Vitorio Alves">
+      <h1>Pedro Jacob Aguiar Vitorio Alves</h1>
+      <p>Estudante de Desenvolvimento de sistemas · IFAL</p>
+      <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
 
-        <h1>Pedro Jacob Aguiar Vitorio Alves</h1>
-        <img src="../imagens/IMG-20260225-WA0004.jpg" width="300" height="300" alt="Foto pessoal">
-        <h2>Turma: 921-C - Desenvolvimento de Sistemas</h2>
-        <h3>Data de nascimento: 18/06/2010</h3>
+    <!-- ====== CONTEÚDO PRINCIPAL ====== -->
+    <main class="principal">
+      <section id="sobre" class="cartao">
+        <h2>Sobre mim</h2>
+        <!-- TROQUE por uma breve apresentação sua -->
+        <p>Sou uma pessoa curiosa, que gosta de aprender coisas novas, principalmente sobre tecnologia, jogos e estudos. 
+ No meu tempo livre, gosto de jogar, assistir séries e praticar atividades físicas. 
+ Também aprecio bastante obras do gênero <i>Fantasia</i>, como <b>O Senhor dos Anéis</b>. 
+ Estou sempre tentando evoluir, aprendendo aos poucos e buscando me tornar mais independente e uma pessoa melhor.</p>
+      </section>
 
-    
-            <h2>Sobre mim</h2>
-            <p>
-                Sou uma pessoa curiosa, que gosta de aprender coisas novas, principalmente sobre tecnologia, jogos e estudos. 
-                No meu tempo livre, gosto de jogar, assistir séries e praticar atividades físicas como musculação e boxe. 
-                Também aprecio bastante obras do gênero <i>Fantasia</i>, como <b>O Senhor dos Anéis</b>, que me fazem refletir. 
-                Estou sempre tentando evoluir, aprendendo aos poucos e buscando me tornar mais independente e uma pessoa melhor.
-            </p>
-        
-            <h2>O que é o curso de Desenvolvimento de Sistemas?</h2>
-            <p>
-                O curso de Desenvolvimento de Sistemas é voltado para a formação de profissionais capazes de criar, desenvolver
-                e manter sistemas computacionais. Durante o curso, os alunos aprendem programação, banco de dados, desenvolvimento
-                web e outras tecnologias essenciais para o mercado de trabalho na área de tecnologia.
-            </p>
-      
-            <h2>Conhecimentos</h2>
-            <p>Possuo alguns conhecimentos na área do curso, como:</p>
-            <ul>
-                <li>Python</li>
-                <li>JavaScript</li>
-                <li>Cybersegurança</li>
-                <li>Informática</li>
-            </ul>
-        
-            <h2>Instituição</h2>
-            <p>
-                <a href="https://www.ifal.edu.br" target="_blank">
-                    Acesse o site oficial do IFAL
-                </a>
-            </p>
-<nav aria-label="Atividades do Capítulo 4">
-  <h2>Capítulo 4 — Tabelas, Listas e Mídia</h2>
+      <section id="projetos" class="cartao">
+        <h2>Projetos</h2>
+        <!-- Galeria com Grid: cada .projeto é um card; adicione/remova à vontade -->
+        <div class="projetos">
+          <article class="projeto">
+            <h3>Projeto 1</h3>
+            <p>O que é e o que você fez. TROQUE por um projeto seu.</p>
+          </article>
+          <article class="projeto">
+            <h3>Projeto 2</h3>
+            <p>Descrição curta do projeto.</p>
+          </article>
+          <article class="projeto">
+            <h3>Projeto 3</h3>
+            <p>Descrição curta do projeto.</p>
+          </article>
+        </div>
+      </section>
+    </main>
 
-  <ul>
-    <li>
-      <a href="cap04/at01.html">
-        Atividade 1 — Tabela Básica
-      </a>
-    </li>
+    <!-- ====== BARRA LATERAL ====== -->
+    <aside class="lateral">
+      <section class="cartao">
+        <h2>Habilidades</h2>
+        <!-- TROQUE pelas suas habilidades -->
+        <ul class="habilidades">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>Grid</li>
+          <li>JavaScript</li>
+        </ul>
+      </section>
 
-    <li>
-      <a href="cap04/at02.html">
-        Atividade 2 — Tabela Semântica com Mesclagem
-      </a>
-    </li>
+      <section id="contato" class="cartao">
+        <h2>Contato</h2>
+        <!-- TROQUE pelos seus links -->
+        <ul class="contato">
+          <li>✉️ <a href="pjava1@aluno.ifal.edu.br">pjava1@aluno.ifal.edu.br</a></li>
+          <li>🐙 <a href="https://github.com/jacob2023a04e-hue">github.com/jacob2023a04e-hue</a></li>
+        </ul>
+      </section>
+    </aside>
 
-    <li>
-      <a href="cap04/at03.html">
-        Atividade 3 — Listas Avançadas e Glossário
-      </a>
-    </li>
+    <!-- ====== RODAPÉ — TROQUE o nome ====== -->
+    <footer class="rodape">© 2026 Pedro Jacob Aguiar Vitorio Alves · feito com HTML + CSS Grid</footer>
 
-    <li>
-      <a href="cap04/at04.html">
-        Atividade 4 — Página Multimídia
-      </a>
-    </li>
-  </ul>
-</nav>
-
-        <nav aria-label="Atividades do Capítulo 4">
-  <h2>Capítulo 5 — Fotmulários HTML</h2>
-
-  <ul>
-    <li>
-      <a href="cap05/at01.html">
-        Atividade 1 — Formulário simples
-      </a>
-    </li>
-        <li>
-                <a href="cap05/at02">
-                        Atividade 2 - Cadastro de usuário
-                </a>
-        </li>
-          <li>
-                <a href="cap05/at03">
-                        Atividade 3 - Matrícula acadêmica
-                </a>       
-          </li>
-        <li>
-               <a href="cap05/at04">
-                       Atividade 4 - Inscrição em evento
-               </a>
-                
-        </li>
-          <li>
-                  <a href="cap05/at05">
-                          Atividade 5 - Pesquisa acadêmica
-                  </a>
-          </li>
-        <h2>Atividades CSS</h2> 
-          <ul>
-         <li> <a href="text atividade-css01-sala/index.html">
-                  Atividade de html e css em dupla
-              </a>
-         </li>
-                  
-        <li>
-                <a href="/atividades-css/index.html">
-                        Atividade 1 de html e css do capítulo 7
-                </a>
-        </li>
-          
-          </ul>
-</nav>
-
+  </div>
 </body>
+
 </html>
