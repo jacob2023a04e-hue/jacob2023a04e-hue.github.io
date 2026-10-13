@@ -1,0 +1,172 @@
+
+/* ===== CONFIGURAÇÕES GERAIS ===== */
+:root {
+  --azul-gamer: #0d6efd;
+  --fundo: #f4f6fa;
+  --escuro: #171923;
+}
+
+body {
+  background-color: var(--fundo);
+  font-family: Arial, sans-serif;
+  color: #212529;
+}
+
+/* ===== FAIXA DE AVISO ===== */
+.bg-primary.text-white.text-center {
+  background-color: var(--escuro) !important;
+  border-bottom: 2px solid var(--azul-gamer);
+  font-weight: bold;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background-color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-brand img {
+  object-fit: contain;
+}
+
+.navbar .nav-link {
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.navbar .nav-link:hover {
+  color: var(--azul-gamer);
+}
+
+/* ===== CARROSSEL ===== */
+#carrossel img {
+  height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+@media (max-width: 575.98px) {
+  #carrossel img {
+    height: 180px;
+  }
+}
+
+/* ===== TÍTULOS DAS SEÇÕES ===== */
+h2.h4,
+h4 {
+  font-weight: bold;
+}
+
+h2.h4 {
+  border-left: 4px solid var(--azul-gamer);
+  padding-left: 10px;
+}
+
+/* ===== CARDS DE CATEGORIAS ===== */
+.row .card {
+  border: 1px solid #e0e4eb;
+  border-radius: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.row .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== PRODUTOS ===== */
+.card.h-100 {
+  overflow: hidden;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: contain;
+  padding: 10px;
+  background-color: #ffffff;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-title a:hover {
+  color: var(--azul-gamer) !important;
+}
+
+.card .fs-5 {
+  color: var(--azul-gamer);
+}
+
+/* ===== BOTÕES ===== */
+.btn-primary {
+  background-color: var(--azul-gamer);
+  border-color: var(--azul-gamer);
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #084298;
+  border-color: #084298;
+}
+
+.btn-outline-dark:hover {
+  transform: scale(1.05);
+}
+
+/* ===== SELOS DE PROMOÇÃO ===== */
+.badge.text-bg-danger {
+  background-color: #e63946 !important;
+}
+
+/* ===== BANNERS PROMOCIONAIS ===== */
+.row img.img-fluid {
+  border-radius: 12px;
+  transition: transform 0.2s;
+}
+
+.row img.img-fluid:hover {
+  transform: scale(1.01);
+}
+
+/* ===== BENEFÍCIOS ===== */
+.bg-body-tertiary.rounded {
+  border: 1px solid #e0e4eb;
+}
+
+/* ===== NEWSLETTER ===== */
+.input-group .form-control {
+  padding: 12px;
+}
+
+.input-group .btn {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* ===== RODAPÉ ===== */
+footer.bg-dark {
+  background-color: var(--escuro) !important;
+  border-top: 3px solid var(--azul-gamer);
+}
+
+footer a:hover {
+  color: #ffffff !important;
+}
+
+footer h6 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* ===== CELULAR ===== */
+@media (max-width: 767.98px) {
+  .card-img-top {
+    height: 150px;
+  }
+
+  footer .col-md-3 {
+    padding-bottom: 12px;
+  }
+}
